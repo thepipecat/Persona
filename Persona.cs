@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ThePipeCat
+namespace ThePipeCat.Persona
 {
   //[ExecuteInEditMode]
   public class Persona : MonoBehaviour
