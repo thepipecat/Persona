@@ -1,14 +1,14 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace ThePipeCat.Persona
+namespace ThePipeCat
 {
   public class PersonaEditor : EditorWindow
   {
     private static Vector2 m_minWindowSize = new Vector2(300, 200);
     private static Vector2 m_maxWindowSize = new Vector2(300, 200);
 
-    [MenuItem("Persona/New")]
+    [MenuItem("ThePipeCat/Persona/New Profile")]
     static void New()
     {
       PersonaEditor window = (PersonaEditor)GetWindow(typeof(PersonaEditor));
@@ -20,6 +20,16 @@ namespace ThePipeCat.Persona
     }
 
     static void Edit()
+    {
+
+    }
+
+    void OnEnable()
+    {
+
+    }
+
+    void OnGUI()
     {
 
     }

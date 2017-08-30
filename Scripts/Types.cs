@@ -1,6 +1,6 @@
-namespace ThePipeCat.Persona
+namespace ThePipeCat
 {
-  public class Types
+  public class PersonaTypes
   {
 
   }

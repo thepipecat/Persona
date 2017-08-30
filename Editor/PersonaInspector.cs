@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace ThePipeCat.Persona
+namespace ThePipeCat
 {
   [CustomEditor(typeof(Persona))]
   public class PersonaInspector : Editor

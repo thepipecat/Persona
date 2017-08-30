@@ -1,23 +1,26 @@
 using UnityEngine;
 
-namespace ThePipeCat.Persona
+namespace ThePipeCat
 {
   [CreateAssetMenuAttribute(fileName = "Char Profile", menuName = "Persona/Profile")]
-  public class ProfileData : ScriptableObject
+  public class PersonaProfile : ScriptableObject
   {
     [System.Serializable]
-    private class LifePointsSettings {
+    private class LifePointsSettings
+    {
       [SerializeField]
       private float m_life;
       [SerializeField]
       private float m_maxLife;
 
-      public float Life {
+      public float Life
+      {
         get { return m_life; }
         set { m_life = value; }
       }
 
-      public float MaxLife {
+      public float MaxLife
+      {
         get { return m_maxLife; }
         set { m_maxLife = value; }
       }
@@ -28,11 +31,13 @@ namespace ThePipeCat.Persona
     [SerializeField]
     private LifePointsSettings m_lifePoints = new LifePointsSettings();
 
-    public string Name {
+    public string Name
+    {
       get { return m_name; }
     }
 
-    private void Awake () {
+    private void Awake()
+    {
 
     }
   }
