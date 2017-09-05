@@ -2,10 +2,17 @@
 
 namespace ThePipeCat
 {
-  //[ExecuteInEditMode]
+  /// <summary>
+  /// Persona.
+  /// </summary>
+  [ExecuteInEditMode]
   public class Persona : MonoBehaviour
   {
-    private Vector3[] m_WayPoints;
+    private PersonaProfile m_profile;
+
+    // -------------------------------------------------------------------------
+    // Unity Lifecycle:
+    // -------------------------------------------------------------------------
 
     private void Awake()
     {
@@ -31,20 +38,10 @@ namespace ThePipeCat
     // Editor helper:
     // -------------------------------------------------------------------------
 
-    private void OnDrawGizmos()
-    {
-      if (m_WayPoints != null)
-      {
-        string wayPointIcon = "";
-        int wayPointsCount = m_WayPoints.Length;
+#if UNITY_EDITOR
 
-        for (int i = 0; i < wayPointsCount; i++)
-        {
-          Vector3 wayPoint = m_WayPoints[i];
 
-          Gizmos.DrawIcon(wayPoint, wayPointIcon);
-        }
-      }
-    }
+#endif
+
   }
 }

@@ -2,41 +2,44 @@ using UnityEngine;
 
 namespace ThePipeCat
 {
-  [CreateAssetMenuAttribute(fileName = "Char Profile", menuName = "Persona/Profile")]
+  /// <summary>
+  /// Persona profile.
+  /// </summary>
+  [CreateAssetMenuAttribute(fileName = "New Persona Profile", menuName = "Persona/Profile")]
   public class PersonaProfile : ScriptableObject
   {
-    [System.Serializable]
-    private class LifePointsSettings
-    {
-      [SerializeField]
-      private float m_life;
-      [SerializeField]
-      private float m_maxLife;
-
-      public float Life
-      {
-        get { return m_life; }
-        set { m_life = value; }
-      }
-
-      public float MaxLife
-      {
-        get { return m_maxLife; }
-        set { m_maxLife = value; }
-      }
-    }
-
-    [SerializeField]
-    private string m_name = "Persona Name";
-    [SerializeField]
-    private LifePointsSettings m_lifePoints = new LifePointsSettings();
+    private string m_name = "Profile Name";
+    private PersonaStats m_stats;
+    private PersonaInventory m_inventory;
 
     public string Name
     {
       get { return m_name; }
     }
 
+    public PersonaStats Stats {
+      get { return m_stats; }
+    }
+
+    public PersonaInventory Inventory {
+      get { return m_inventory; }
+    }
+
+    // -------------------------------------------------------------------------
+    // Unity Lifecycle:
+    // -------------------------------------------------------------------------
+
     private void Awake()
+    {
+
+    }
+
+    private void OnEnable()
+    {
+
+    }
+
+    private void OnDisable()
     {
 
     }
