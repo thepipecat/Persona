@@ -8,21 +8,21 @@ namespace ThePipeCat
   [CreateAssetMenuAttribute(fileName = "New Persona Profile", menuName = "Persona/Profile")]
   public class PersonaProfile : ScriptableObject
   {
-    private string m_name = "Profile Name";
-    private PersonaStats m_stats;
-    private PersonaInventory m_inventory;
+    private string m_Name = "Profile Name";
+    private PersonaStats m_Stats;
+    private PersonaInventory m_Inventory;
 
     public string Name
     {
-      get { return m_name; }
+      get { return m_Name; }
     }
 
     public PersonaStats Stats {
-      get { return m_stats; }
+      get { return m_Stats; }
     }
 
     public PersonaInventory Inventory {
-      get { return m_inventory; }
+      get { return m_Inventory; }
     }
 
     // -------------------------------------------------------------------------

@@ -2,21 +2,21 @@ namespace ThePipeCat
 {
   [System.Serializable]
   public class PersonaStats {
-    protected float m_life;
-    protected float m_maxLife;
-    protected float m_attack;
-    protected float m_defense;
+    protected float m_Life;
+    protected float m_LifeMax;
+    protected float m_Attack;
+    protected float m_Defense;
 
     public float Life
     {
-      get { return m_life; }
-      set { m_life = value; }
+      get { return m_Life; }
+      set { m_Life = value; }
     }
 
-    public float MaxLife
+    public float LifeMax
     {
-      get { return m_maxLife; }
-      set { m_maxLife = value; }
+      get { return m_LifeMax; }
+      set { m_LifeMax = value; }
     }
   }
 }
