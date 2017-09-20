@@ -1,0 +1,1 @@
+﻿# Persona Emote - Resources Folder

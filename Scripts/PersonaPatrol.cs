@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ThePipeCat
+namespace ThePipeCat.Persona
 {
   [ExecuteInEditMode]
   public class PersonaPatrol : MonoBehaviour

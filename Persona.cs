@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ThePipeCat
+namespace ThePipeCat.Persona
 {
   /// <summary>
   /// Persona.
@@ -8,7 +8,12 @@ namespace ThePipeCat
   [ExecuteInEditMode]
   public class Persona : MonoBehaviour
   {
-    private PersonaProfile m_profile;
+    private PersonaProfile m_Profile;
+
+    public PersonaProfile Profile
+    {
+      get { return m_Profile; }
+    }
 
     // -------------------------------------------------------------------------
     // Unity Lifecycle:
