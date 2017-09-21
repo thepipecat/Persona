@@ -1,10 +1,16 @@
-namespace ThePipeCat
+using UnityEngine;
+
+namespace ThePipeCat.Persona
 {
   [System.Serializable]
-  public class PersonaStats {
+  public class PersonaStats : System.Object {
+    [SerializeField]
     protected float m_Life;
+    [SerializeField]
     protected float m_LifeMax;
+    [SerializeField]
     protected float m_Attack;
+    [SerializeField]
     protected float m_Defense;
 
     public float Life

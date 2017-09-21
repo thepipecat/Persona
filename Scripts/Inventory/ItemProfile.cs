@@ -2,7 +2,8 @@
 
 namespace ThePipeCat.Persona
 {
-  class ItemProfile : ScriptableObject
+  [CreateAssetMenuAttribute(fileName = "New Item Profile", menuName = "Persona/Item")]
+  public class ItemProfile : ScriptableObject
   {
     [SerializeField]
     private string m_Name;

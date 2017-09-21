@@ -1,34 +1,28 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace ThePipeCat
+namespace ThePipeCat.Persona
 {
-  /// <summary>
-  /// Inventory slot info.
-  /// </summary>
-  public class InventorySlotInfo
-  {
-    public GameObject Item = null;
-    public int Index = -1;
-    public int Count = 0;
-  }
-
   /// <summary>
   /// Persona inventory.
   /// </summary>
+  [CreateAssetMenuAttribute(fileName = "New Item Profile", menuName = "Persona/Inventory")]
   public class PersonaInventory : ScriptableObject
   {
-    private int m_limit = 10;
-    private Dictionary<GameObject, InventorySlotInfo> m_slots;
+    [SerializeField]
+    private InventorySlotInfo[] m_Slots;
+
+    public InventorySlotInfo[] Slots {
+      get { return m_Slots; }
+    }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="T:ThePipeCat.PersonaInventory"/> class.
+    /// Initializes a new instance of the <see cref="T:ThePipeCat.Persona.PersonaInventory"/> class.
     /// </summary>
     /// <param name="limit">Limit.</param>
-    PersonaInventory(int limit)
+    public PersonaInventory(int limit)
     {
-      m_limit = limit;
-      m_slots = new Dictionary<GameObject, InventorySlotInfo>();
+      m_Slots = new InventorySlotInfo[limit];
     }
 
     /// <summary>
@@ -37,24 +31,28 @@ namespace ThePipeCat
     /// <returns>The add.</returns>
     /// <param name="item">Item.</param>
     /// <param name="count">Count.</param>
-    public InventorySlotInfo Add(GameObject item, int count = 1)
+    public InventorySlotInfo Add(ItemProfile item, int count = 1)
     {
-      InventorySlotInfo slotInfo = new InventorySlotInfo();
+      InventorySlotInfo slotInfo = null;
 
-      if (m_slots.TryGetValue(item, out slotInfo))
-      {
-        slotInfo.Count += count;
-      }
-      else
-      {
-        if (m_slots.Count < m_limit)
-        {
-          slotInfo.Item = item;
-          slotInfo.Index = m_slots.Count;
-          slotInfo.Count = 1;
+      int limit = m_Slots.Length;
 
-          m_slots.Add(item, slotInfo);
+      for (int i = 0; i < limit; i++) {
+        if (m_Slots[i].Item == item) {
+          slotInfo = m_Slots[i];
+          break;
         }
+      }
+
+      if (slotInfo == null) {
+        for (int i = 0; i < limit; i++) {
+          if (m_Slots[i] == null) {
+            m_Slots[i] = new InventorySlotInfo(item, count);
+            break;
+          }
+        }
+      } else {
+        slotInfo.Count += count;
       }
 
       return slotInfo;
@@ -65,37 +63,40 @@ namespace ThePipeCat
     /// </summary>
     /// <returns>The remove.</returns>
     /// <param name="item">Item.</param>
-    public bool Remove(GameObject item)
+    public bool Remove(ItemProfile item)
     {
-      return m_slots.Remove(item);
-    }
+      bool removed = false;
+      int limit = m_Slots.Length;
 
-    public bool Drop (GameObject item, int ammount = 0) {
-      InventorySlotInfo slotInfo;
+      for (int i = 0; i < limit; i++) {
+        if (m_Slots[i].Item == item) {
+          m_Slots[i] = null;
+          removed = true;
 
-      if (m_slots.TryGetValue(item, out slotInfo)) {
-        slotInfo.Count -= ammount;
+          break;
+        }
       }
 
-      return (slotInfo != null);
+      return removed;
     }
 
     /// <summary>
-    /// Items this instance.
+    /// Drop an ammount of the item.
     /// </summary>
-    /// <returns>The items.</returns>
-    public InventorySlotInfo[] Items()
-    {
-      InventorySlotInfo[] list = new InventorySlotInfo[m_limit];
+    public bool Drop (ItemProfile item, int ammount = 0) {
+      bool droped = false;
+      int limit = m_Slots.Length;
 
-      int i = 0;
+      for (int i = 0; i < limit; i++) {
+        if (m_Slots[i].Item == item) {
+          m_Slots[i].Count -= ammount;
+          droped = true;
 
-      foreach (KeyValuePair<GameObject, InventorySlotInfo> slotInfo in m_slots)
-      {
-        list.SetValue(slotInfo.Value, i++);
+          break;
+        }
       }
 
-      return list;
+      return droped;
     }
 
     /// <summary>
@@ -104,7 +105,18 @@ namespace ThePipeCat
     /// <param name="newLimit">New limit.</param>
     public void SetLimit(int newLimit)
     {
-      m_limit = newLimit;
+      int limit = m_Slots.Length;
+      InventorySlotInfo[] tmpSlots = new InventorySlotInfo[limit];
+
+      for (int i = 0; i < limit; i++) {
+        tmpSlots[i] = m_Slots[i];
+      }
+
+      m_Slots = new InventorySlotInfo[newLimit];
+
+      for (int i = 0; i < limit; i++) {
+        m_Slots[i] = tmpSlots[i];
+      }
     }
   }
 }
