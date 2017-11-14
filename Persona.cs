@@ -8,7 +8,7 @@ namespace ThePipeCat.Persona
   [ExecuteInEditMode]
   public class Persona : MonoBehaviour
   {
-    private PersonaProfile m_Profile;
+    PersonaProfile m_Profile;
 
     public PersonaProfile Profile
     {
