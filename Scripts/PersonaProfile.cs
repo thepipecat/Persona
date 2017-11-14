@@ -11,7 +11,7 @@ namespace ThePipeCat.Persona
         [SerializeField]
         private PersonaType m_Type;
         [SerializeField]
-        private string m_Name = "Profile Name";
+        private string m_ProfileName = "Profile Name";
         [SerializeField]
         private PersonaStats m_Stats;
         [SerializeField]
@@ -25,7 +25,7 @@ namespace ThePipeCat.Persona
 
         public string Name
         {
-            get { return m_Name; }
+            get { return m_ProfileName; }
         }
 
         public PersonaStats Stats
