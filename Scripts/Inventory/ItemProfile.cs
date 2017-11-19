@@ -2,42 +2,42 @@
 
 namespace ThePipeCat.Persona
 {
-  [CreateAssetMenuAttribute(fileName = "New Item Profile", menuName = "Persona/Item")]
-  public class ItemProfile : ScriptableObject
-  {
-    [SerializeField]
-    private string m_Name;
-    [SerializeField]
-    private string m_Description;
-    [SerializeField]
-    private float m_Cost;
-    [SerializeField]
-    private int m_Quantity;
-
-    public string Name
+    [CreateAssetMenu(fileName = "New Item Profile", menuName = "Persona/Item")]
+    public class ItemProfile : ScriptableObject
     {
-      get { return m_Name; }
-    }
+        [SerializeField]
+        string m_Name;
+        [SerializeField]
+        string m_Description;
+        [SerializeField]
+        float m_Cost;
+        [SerializeField]
+        int m_Quantity;
 
-    public string Description
-    {
-      get { return m_Description; }
-    }
+        public string Name
+        {
+            get { return m_Name; }
+        }
 
-    public float Cost
-    {
-      get { return m_Cost; }
-    }
+        public string Description
+        {
+            get { return m_Description; }
+        }
 
-    public int Quantity
-    {
-      get { return m_Quantity; }
-    }
+        public float Cost
+        {
+            get { return m_Cost; }
+        }
 
-    public ItemProfile (string name, float cost = 0f)
-    {
-      m_Name = name;
-      m_Cost = cost;
+        public int Quantity
+        {
+            get { return m_Quantity; }
+        }
+
+        public ItemProfile(string name, float cost = 0f)
+        {
+            m_Name = name;
+            m_Cost = cost;
+        }
     }
-  }
 }
