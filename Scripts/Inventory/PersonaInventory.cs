@@ -10,7 +10,6 @@ namespace ThePipeCat.Persona
     {
         [SerializeField]
         InventorySlotInfo[] m_Slots;
-        [SerializeField]
         [System.NonSerialized]
         int m_Coins;
 
