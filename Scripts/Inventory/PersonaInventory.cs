@@ -12,6 +12,8 @@ namespace ThePipeCat.Persona
         InventorySlotInfo[] m_Slots;
         [System.NonSerialized]
         int m_Coins;
+        [System.NonSerialized]
+        int m_Potions;
 
         public InventorySlotInfo[] Slots
         {
@@ -22,6 +24,12 @@ namespace ThePipeCat.Persona
         {
             get { return m_Coins; }
             set { m_Coins = value; }
+        }
+
+        public int Potions
+        {
+            get { return m_Potions; }
+            set { m_Potions = value; }
         }
 
         /// <summary>
